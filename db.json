@@ -1,0 +1,58 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "price": 10,
+      "name": "Product A",
+      "description": "This is product C"
+    },
+    {
+      "id": 2,
+      "price": 40,
+      "name": "Product B",
+      "description": "This is product D"
+    },
+    {
+      "id": 3,
+      "price": 30,
+      "name": "Product C",
+      "description": "This is product C"
+    },
+    {
+      "id": 4,
+      "price": 40,
+      "name": "Product D",
+      "description": "This is product D"
+    },
+    {
+      "id": 5,
+      "price": 50,
+      "name": "Product E",
+      "description": "This is product E"
+    },
+    {
+      "id": 7,
+      "price": 70,
+      "name": "Product G",
+      "description": "This is product G"
+    },
+    {
+      "name": "dfgdsg",
+      "price": "67",
+      "description": "fghgfh",
+      "id": 20
+    },
+    {
+      "name": "dfgdsggdsg",
+      "price": "96",
+      "description": "fghgfhdsfgf",
+      "id": 28
+    },
+    {
+      "name": "hgjghjgfh",
+      "price": "85",
+      "description": "bcbfdgb",
+      "id": 14
+    }
+  ]
+}

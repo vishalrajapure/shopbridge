@@ -1,0 +1,28 @@
+<div class="container">
+  <div *ngIf="products.length>0" class="table-responsive table mt-2" id="dataTable" role="grid"
+    aria-describedby="dataTable_info">
+    <table class="table my-0 tablestyling" id="dataTable">
+      <thead style="color: darkcyan;">
+        <tr>
+          <th>Product Name</th>
+          <th>Product Description</th>
+          <th>Product Price</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{product.name}}</td>
+          <td>{{product.description}}</td>
+          <td>{{product.price}}</td>
+          <button class="btn btn-outline-danger my-2 my-sm-0" style="margin:5px;" (click)="deleteProduct(product)">Delete</button>
+          <button class="btn btn-outline-danger my-2 my-sm-0" style="margin:5px;" (click)="openProductModifyModal(modifyproduct, product)">Modify</button>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<ng-template #modifyproduct>
+
+</ng-template>
