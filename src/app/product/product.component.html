@@ -23,6 +23,47 @@
   </div>
 </div>
 
-<ng-template #modifyproduct>
 
+
+<ng-template #modifyproduct let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Product Name :
+      {{modalProduct.name}} </h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <ngb-accordion #acc="ngbAccordion" activeIds="toggle-1">
+      <ngb-panel id="toggle-1">
+        <!-- <ng-template ngbPanelTitle>
+          <span><b>Treatment Details</b></span>
+        </ng-template> -->
+        <ng-template ngbPanelContent>
+          <div class="table-responsive">
+            <table class="table tablestyling">
+              <tbody style="text-align: center;">
+                <tr>
+                  <td class="modalrowtitlecolor noborder">Product Name</td>
+                    <input  class="form-control adjusttextbox" [(ngModel)]="modalProduct.name">
+                </tr>
+                <tr>
+                  <td class="modalrowtitlecolor noborder">Product Price</td>
+                  <input type="text" class="form-control adjusttextbox" [(ngModel)]="modalProduct.price">
+                </tr>
+                <tr>
+                  <td class="modalrowtitlecolor noborder ">Description</td>
+                  <input type="text" class="form-control adjusttextbox" [(ngModel)]="modalProduct.description">
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
+    <hr />
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn ngbAutofocus btn-outline-dark" (click)="modal.close('Save click')">Update Product</button>
+  </div>
 </ng-template>

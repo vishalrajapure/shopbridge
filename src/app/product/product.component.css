@@ -1,0 +1,15 @@
+.tablestyling {
+  font-size: larger;
+  font-weight: initial;
+}
+.modalrowtitlecolor{
+  color: #027676;
+}
+
+.adjusttextbox{
+  margin-top: 6px;
+}
+
+.noborder{
+    border-top: none;
+}

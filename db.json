@@ -1,34 +1,10 @@
 {
   "products": [
     {
-      "id": 1,
-      "price": 10,
-      "name": "Product A",
-      "description": "This is product C"
-    },
-    {
-      "id": 2,
-      "price": 40,
-      "name": "Product B",
-      "description": "This is product D"
-    },
-    {
-      "id": 3,
-      "price": 30,
-      "name": "Product C",
-      "description": "This is product C"
-    },
-    {
       "id": 4,
       "price": 40,
       "name": "Product D",
       "description": "This is product D"
-    },
-    {
-      "id": 5,
-      "price": 50,
-      "name": "Product E",
-      "description": "This is product E"
     },
     {
       "id": 7,
@@ -49,10 +25,10 @@
       "id": 28
     },
     {
-      "name": "hgjghjgfh",
-      "price": "85",
-      "description": "bcbfdgb",
-      "id": 14
+      "name": "Mobile",
+      "price": "150",
+      "description": "This is mobile product",
+      "id": 69
     }
   ]
 }

@@ -25,4 +25,8 @@ export class ProductService {
     return this.httpClient.post(environment.SERVER_BASE_PATH + 'products/', product);
   }
 
+  modifyProduct(modifiedProduct: Product){
+    return this.httpClient.put(environment.SERVER_BASE_PATH + 'products/', modifiedProduct);
+  }
+
 }

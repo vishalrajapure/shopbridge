@@ -3,7 +3,7 @@ import { ProductService } from './product.service';
 import { Product } from '../shared/Product';
 import { empty, Observable, Subscription } from 'rxjs';
 import Swal from 'sweetalert2'
-
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-product',
@@ -15,8 +15,9 @@ export class ProductComponent implements OnInit {
   public products: Product[] = [];
   public modalProduct: Product;
   private subscriptions$: Subscription[] = [];
+  closeResult = '';
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.displayProducts();
@@ -55,6 +56,7 @@ export class ProductComponent implements OnInit {
           },
           (err) => {
             console.log('Error occured while deleting product from server')
+            return;
           });
         this.subscriptions$.push(deleteProductSub$);
         Swal.fire(
@@ -66,17 +68,41 @@ export class ProductComponent implements OnInit {
     })
   }
 
-  public modifyProduct(product){
-
+  public modifyProduct(product) {
+    const modifiedProdSub$ = this.productService.modifyProduct(product).subscribe(
+      (response) => {
+        this.displayProducts();
+      },
+      (err) => {
+        console.log('Error occured while deleting product from server')
+        return;
+      });
+    this.subscriptions$.push(modifiedProdSub$);
+    Swal.fire(
+      'Modified!',
+      'Product has been modified successfully.',
+      'success'
+    )
   }
 
-  openProductModifyModal(modifyproduct, product) {
-    // this.modalProduct = product;
-    // this.modalService.open(modifyproduct, { ariaLabelledBy: 'modal-basic-title', centered: true, size: 'lg', scrollable: true }).result.then((result) => {
-    //   this.closeResult = `Closed with: ${result}`;
-    // }, (reason) => {
-    //   this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    // });
+  public openProductModifyModal(modifyproduct, product) {
+    this.modalProduct = product;
+    this.modalService.open(modifyproduct, { ariaLabelledBy: 'modal-basic-title', centered: true, size: 'lg', scrollable: true }).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+      this.modifyProduct(this.modalProduct);
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
   }
 
 }
